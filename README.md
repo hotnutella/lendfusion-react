@@ -1,14 +1,39 @@
 # Test task for LendFusion
-## Description of the task
-**Mandatory**
-* Display a list of users (use https://jsonplaceholder.typicode.com/users as mock data);
-* Clicking on the name of each user should take you to the user's detail view and display information related to the user (https://jsonplaceholder.typicode.com/users/1 according to the id);
-* Add a search box to the list that allows searching by user name;
-* The design of the solution is free to choose, there is no
-predetermined design.
-* Submit the result to GitHub and forward the link to e-mail.
 
-**Bonus points (optional)**
-* add a form for adding a new user and update the list when added;
-* add delete user;
-* add user change.
+## Project Overview
+
+This React application displays a list of users fetched from JSONPlaceholder. The app allows users to click on a user in the list to view detailed information and includes a search box for filtering users. The project is built using React, Redux Toolkit Query (RTK Query) for data fetching, and CSS Modules for styling.
+
+### Features
+
+- **User List**: Displays a list of users fetched from JSONPlaceholder.
+- **User Details**: Clicking on a user in the list displays detailed information about that user.
+- **Search Functionality**: A search box allows users to filter the list based on user names.
+
+### Implementation
+
+- **React**: Used for building the user interface.
+- **RTK Query**: Utilized for efficient server state management in Redux, handling the data fetching, caching, and synchronization logic.
+- **CSS Modules**: Adopted for styling components in a modular and reusable way.
+
+## Running the Project
+
+Follow these steps to get the project up and running on your local machine:
+
+1. **Clone the Repository**
+   ```bash
+   git clone [your-repository-url]
+   cd [your-project-directory]
+   ``````
+
+2. **Install Dependencies**
+    ```bash
+    npm install
+    ```
+
+3. **Start the Development Server**
+    ```bash
+    npm start
+    ```
+    This command runs the app in development mode. Open http://localhost:3000 to view it in the browser. The page will reload if you make edits.
+
