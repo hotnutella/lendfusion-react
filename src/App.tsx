@@ -1,12 +1,15 @@
 import React from 'react';
-import { useGetUsersQuery } from './slices/api';
+import styles from './App.module.css';
+import MainContent from './components/ui/MainContent';
+import UserList from './components/users/UserList';
 
 function App() {
-  const { data: users } = useGetUsersQuery();
-  console.log(users);
 
   return (
-    <div className="App">
+    <div className={styles.app}>
+      <MainContent>
+        <UserList />
+      </MainContent>
     </div>
   );
 }

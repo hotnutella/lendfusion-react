@@ -7,6 +7,7 @@
 * The design of the solution is free to choose, there is no
 predetermined design.
 * Submit the result to GitHub and forward the link to e-mail.
+
 **Bonus points (optional)**
 * add a form for adding a new user and update the list when added;
 * add delete user;

@@ -7,9 +7,13 @@ export const api = createApi({
         getUsers: builder.query<any, void>({
             query: () => 'users',
         }),
+        getUserDetails: builder.query<any, number>({
+            query: (id) => `users/${id}`,
+        }),
     }),
 })
 
 export const { 
-    useGetUsersQuery 
+    useGetUsersQuery,
+    useGetUserDetailsQuery,
 } = api;
