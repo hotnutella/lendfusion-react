@@ -22,8 +22,8 @@ Follow these steps to get the project up and running on your local machine:
 
 1. **Clone the Repository**
    ```bash
-   git clone [your-repository-url]
-   cd [your-project-directory]
+   git clone git@github.com:hotnutella/lendfusion-react.git
+   cd lendfusion-react
    ``````
 
 2. **Install Dependencies**
