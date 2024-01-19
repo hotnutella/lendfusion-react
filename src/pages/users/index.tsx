@@ -1,19 +1,41 @@
 import React, { useState } from 'react';
-import { useGetUsersQuery } from '../../store/api';
+import { useDeleteUserMutation } from '../../store/api';
 import UserDetails from '../../components/users/UserDetails';
 import UserList from '../../components/users/UserList';
 import PageHeading from '../../components/ui/PageHeading';
 import Button from '../../components/ui/Button';
 import Dialog from '../../components/ui/Dialog';
 import UserForm from '../../components/users/UserForm';
+import UserDeletePrompt from '../../components/users/UserDeletePrompt';
 
 const UsersPage = () => {
     const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>('');
-    const [dialogOpen, setDialogOpen] = useState<boolean>(true);
+    const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+    const [deletePromptOpen, setDeletePromptOpen] = useState<boolean>(false);
+    const [deleteUserId, setDeleteUserId] = useState<number | null>(null);
+    const [deleteUser] = useDeleteUserMutation();
 
     const handleUserSelection = (id: number) => {
         setSelectedUserId(id);
+    }
+
+    const handleDelete = (id: number) => {
+        setDeletePromptOpen(true);
+        setDeleteUserId(id);
+    }
+
+    const handleDeleteCancel = () => {
+        setDeletePromptOpen(false);
+        setDeleteUserId(null);
+    }
+
+    const handleDeleteConfirm = () => {
+        if (deleteUserId) {
+            deleteUser(deleteUserId);
+        }
+        setDeletePromptOpen(false);
+        setDeleteUserId(null);
     }
 
     const title = selectedUserId ? 'User details' : 'Users';
@@ -35,6 +57,7 @@ const UsersPage = () => {
             {!selectedUserId && (
                 <UserList
                     onUserSelection={handleUserSelection}
+                    onUserDelete={handleDelete}
                     searchQuery={searchQuery} />
             )}
             <Dialog
@@ -44,6 +67,11 @@ const UsersPage = () => {
             >
                 <UserForm onUserAdded={() => setDialogOpen(false)} />
             </Dialog>
+            <UserDeletePrompt 
+                open={deletePromptOpen}
+                onClose={handleDeleteCancel}
+                onCancel={handleDeleteCancel}
+                onDelete={handleDeleteConfirm} />
         </>
     );
 }
