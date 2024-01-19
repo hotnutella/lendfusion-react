@@ -45,8 +45,32 @@ export const api = createApi({
                 method: 'PUT',
                 body: patch,
             }),
+            onQueryStarted: async (patch, { dispatch, queryFulfilled }) => {
+                const patchResult1 = dispatch(
+                    api.util.updateQueryData('getUsers', undefined, (draft) => {
+                        const userIndex = draft?.findIndex((user) => user.id === patch.id);
+                        if (userIndex !== undefined && userIndex !== -1) {
+                            draft?.splice(userIndex, 1, patch);
+                        }
+                    })
+                );
+
+                const patchResult2 = dispatch(
+                    api.util.updateQueryData('getUserDetails', patch.id!, (draft) => {
+                        Object.assign(draft, patch);
+                    })
+                );
+
+                try {
+                    await queryFulfilled;
+                }
+                catch {
+                    patchResult1.undo();
+                    patchResult2.undo();
+                }
+            }
         }),
-        deleteUser: builder.mutation<any, number>({
+        deleteUser: builder.mutation<{}, number>({
             query: (id) => ({
                 url: `users/${id}`,
                 method: 'DELETE',

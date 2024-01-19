@@ -1,0 +1,8 @@
+.clickable {
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+.clickable:hover {
+    text-decoration: dotted underline;
+}
