@@ -5,6 +5,7 @@ import UserList from '../../components/users/UserList';
 import PageHeading from '../../components/ui/PageHeading';
 import Button from '../../components/ui/Button';
 import Dialog from '../../components/ui/Dialog';
+import UserForm from '../../components/users/UserForm';
 
 const UsersPage = () => {
     const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
@@ -16,7 +17,6 @@ const UsersPage = () => {
     }
 
     const title = selectedUserId ? 'User details' : 'Users';
-
     const addButton = (
         <Button onClick={() => setDialogOpen(true)}>Add user</Button>
     );
@@ -42,7 +42,7 @@ const UsersPage = () => {
                 title='Add new user'
                 onClose={() => setDialogOpen(false)}
             >
-                My dialog
+                <UserForm onUserAdded={() => setDialogOpen(false)} />
             </Dialog>
         </>
     );

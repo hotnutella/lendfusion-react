@@ -2,16 +2,9 @@
     background-color: #fff;
     border-radius: 10px;
     display: inline-block;
-    height: 300px;
     margin: 1rem;
     position: relative;
-    width: 300px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     transition: all 0.3s ease-in-out;
-}
-
-.large {
-    height: 800px;
-    width: 400px;
 }

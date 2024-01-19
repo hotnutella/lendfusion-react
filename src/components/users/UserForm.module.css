@@ -1,0 +1,25 @@
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}
+
+.grid > div > div {
+    margin-bottom: 0.5rem;
+}
+
+.grid > div > div > label {
+    display: inline-block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+}
+
+.grid > div > div > input {
+    display: block;
+    width: 90%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}

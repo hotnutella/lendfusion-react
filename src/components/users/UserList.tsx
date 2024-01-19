@@ -20,7 +20,7 @@ const UserList = ({ onUserSelection, searchQuery }: UserListProps) => {
                 <UserListItem
                     key={user.id}
                     name={user.name}
-                    onClick={() => onUserSelection(user.id)} />
+                    onClick={() => onUserSelection(user.id!)} />
             ))}
         </>
     );

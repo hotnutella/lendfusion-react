@@ -11,14 +11,33 @@ export const api = createApi({
         getUserDetails: builder.query<User, number>({
             query: (id) => `users/${id}`,
         }),
-        addUser: builder.mutation<any, any>({
+        addUser: builder.mutation<User, User>({
             query: (body) => ({
                 url: 'users',
                 method: 'POST',
                 body,
             }),
+            onQueryStarted: async (newUserData, { dispatch, queryFulfilled }) => {
+                const patchResult = dispatch(
+                    api.util.updateQueryData('getUsers', undefined, (draft) => {
+                        // jsonplaceholder doesn't create new users on the server
+                        // so we have to fake it locally by assigning the next id
+                        // otherwise all new users will have id of 11
+                        const mockId = draft.length + 1; 
+                        const newUser = { ...newUserData, id: mockId };
+                        draft?.push(newUser);
+                    })
+                );
+
+                try {
+                    await queryFulfilled;
+                }
+                catch {
+                    patchResult.undo();
+                }
+            }
         }),
-        updateUser: builder.mutation<any, any>({
+        updateUser: builder.mutation<any, User>({
             query: ({ id, ...patch }) => ({
                 url: `users/${id}`,
                 method: 'PUT',
@@ -34,7 +53,7 @@ export const api = createApi({
     }),
 })
 
-export const { 
+export const {
     useGetUsersQuery,
     useGetUserDetailsQuery,
     useAddUserMutation,
