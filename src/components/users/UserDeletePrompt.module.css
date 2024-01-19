@@ -1,0 +1,14 @@
+.actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 1rem;
+}
+
+.actions button {
+    width: 48%;
+}
+
+.question {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+}

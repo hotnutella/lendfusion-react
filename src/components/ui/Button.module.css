@@ -8,3 +8,9 @@
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+
+.secondary {
+    background-color: var(--secondary-color);
+    border: var(--primary-color) 1px solid;
+    color: var(--primary-color);
+}

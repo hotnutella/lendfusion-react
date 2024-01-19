@@ -3,12 +3,16 @@ import styles from './Button.module.css';
 
 interface ButtonProps {
     type?: 'button' | 'submit' | 'reset';
+    variant?: 'primary' | 'secondary';
     children: string;
     onClick?: () => void;
 }
 
-const Button = ({ children, onClick, type }: ButtonProps) => {
+const Button = ({ children, onClick, type, variant }: ButtonProps) => {
     const buttonType = type || 'button';
+    const buttonVariant = variant || 'primary';
+
+    const className = `${styles.button} ${styles[buttonVariant]}`;
 
     const handleClick = () => {
         if (onClick) {
@@ -19,7 +23,7 @@ const Button = ({ children, onClick, type }: ButtonProps) => {
     return (
         <button 
             type={buttonType}
-            className={styles.button} 
+            className={className} 
             onClick={handleClick}
         >
             {children}

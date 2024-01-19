@@ -1,6 +1,7 @@
 .item {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     padding: 0.5rem 1rem;
     border-bottom: 1px solid #ccc;
     cursor: pointer;
@@ -9,4 +10,14 @@
 
 .item:hover {
     background-color: #f4f4f4;
+}
+
+.item a {
+    color: var(--primary-color);
+    text-decoration: none;
+    opacity: 0.5;
+}
+
+.item a:hover {
+    opacity: 1;
 }

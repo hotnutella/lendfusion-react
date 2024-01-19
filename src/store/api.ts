@@ -1,6 +1,8 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { User } from '../pages/users/types';
 
+const MINIMUM_MOCK_ID = 11;
+
 export const api = createApi({
     reducerPath: 'api',
     baseQuery: fetchBaseQuery({ baseUrl: 'https://jsonplaceholder.typicode.com/' }),
@@ -23,7 +25,7 @@ export const api = createApi({
                         // jsonplaceholder doesn't create new users on the server
                         // so we have to fake it locally by assigning the next id
                         // otherwise all new users will have id of 11
-                        const mockId = draft.length + 1; 
+                        const mockId = Math.max(MINIMUM_MOCK_ID, draft.length + 1);
                         const newUser = { ...newUserData, id: mockId };
                         draft?.push(newUser);
                     })
@@ -49,6 +51,23 @@ export const api = createApi({
                 url: `users/${id}`,
                 method: 'DELETE',
             }),
+            onQueryStarted: async (id, { dispatch, queryFulfilled }) => {
+                const patchResult = dispatch(
+                    api.util.updateQueryData('getUsers', undefined, (draft) => {
+                        const userIndex = draft?.findIndex((user) => user.id === id);
+                        if (userIndex !== undefined && userIndex !== -1) {
+                            draft?.splice(userIndex, 1);
+                        }
+                    })
+                );
+
+                try {
+                    await queryFulfilled;
+                }
+                catch {
+                    patchResult.undo();
+                }
+            }
         }),
     }),
 })
