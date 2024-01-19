@@ -20,7 +20,8 @@ This React application displays a list of users fetched from JSONPlaceholder. Th
 - **CSS Modules**: Adopted for styling components in a modular and reusable way.
 
 ## Demo
-The demo is accessible by following this link: https://hotnutella.github.io/lendfusion-react/
+The demo is accessible by following this link: 
+<a href="https://hotnutella.github.io/lendfusion-react/" target="_blank">https://hotnutella.github.io/lendfusion-react/</a>
 
 
 ## Running the Project
