@@ -9,6 +9,12 @@ interface Address {
     }
 }
 
+interface Company {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+}
+
 export interface User {
     id: number;
     name: string;
@@ -17,9 +23,5 @@ export interface User {
     address: Address;
     phone: string;
     website: string;
-    company: {
-        name: string;
-        catchPhrase: string;
-        bs: string;
-    }
+    company: Company;
 }
