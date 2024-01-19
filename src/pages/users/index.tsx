@@ -13,6 +13,8 @@ const UsersPage = () => {
         setSelectedUserId(id);
     }
 
+    const title = selectedUserId ? 'User details' : 'Users';
+
     const addButton = (
         <Button onClick={() => console.log('adding user')}>Add user</Button>
     );
@@ -20,8 +22,8 @@ const UsersPage = () => {
     return (
         <>
             <PageHeading             
-                title="Users"
-                addButton={addButton}
+                title={title}
+                addButton={!selectedUserId ? addButton : undefined}
                 onSearch={setSearchQuery} />
             {selectedUserId && (
                 <UserDetails
