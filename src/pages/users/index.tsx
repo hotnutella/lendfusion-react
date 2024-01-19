@@ -4,10 +4,12 @@ import UserDetails from '../../components/users/UserDetails';
 import UserList from '../../components/users/UserList';
 import PageHeading from '../../components/ui/PageHeading';
 import Button from '../../components/ui/Button';
+import Dialog from '../../components/ui/Dialog';
 
 const UsersPage = () => {
     const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
     const [searchQuery, setSearchQuery] = useState<string>('');
+    const [dialogOpen, setDialogOpen] = useState<boolean>(true);
 
     const handleUserSelection = (id: number) => {
         setSelectedUserId(id);
@@ -16,12 +18,12 @@ const UsersPage = () => {
     const title = selectedUserId ? 'User details' : 'Users';
 
     const addButton = (
-        <Button onClick={() => console.log('adding user')}>Add user</Button>
+        <Button onClick={() => setDialogOpen(true)}>Add user</Button>
     );
 
     return (
         <>
-            <PageHeading             
+            <PageHeading
                 title={title}
                 addButton={!selectedUserId ? addButton : undefined}
                 onSearch={setSearchQuery} />
@@ -35,6 +37,13 @@ const UsersPage = () => {
                     onUserSelection={handleUserSelection}
                     searchQuery={searchQuery} />
             )}
+            <Dialog
+                open={dialogOpen}
+                title='Add new user'
+                onClose={() => setDialogOpen(false)}
+            >
+                My dialog
+            </Dialog>
         </>
     );
 }
