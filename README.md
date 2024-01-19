@@ -1,8 +1,6 @@
 # Test task for LendFusion
 
-## Project Overview
-
-This React application displays a list of users fetched from JSONPlaceholder. The app allows users to click on a user in the list to view detailed information and includes a search box for filtering users. The project is built using React, Redux Toolkit Query (RTK Query) for data fetching, and CSS Modules for styling.
+## What was done
 
 ### Features
 
@@ -23,7 +21,7 @@ This React application displays a list of users fetched from JSONPlaceholder. Th
 The demo is accessible by following this link: https://hotnutella.github.io/lendfusion-react/
 
 
-## Running the Project
+## Running on a local machine
 
 Follow these steps to get the project up and running on your local machine:
 
