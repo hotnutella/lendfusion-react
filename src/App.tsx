@@ -1,14 +1,13 @@
 import React from 'react';
 import styles from './App.module.css';
 import MainContent from './components/ui/MainContent';
-import UserList from './components/users/UserList';
+import UsersPage from './pages/users';
 
 function App() {
-
   return (
     <div className={styles.app}>
       <MainContent>
-        <UserList />
+        <UsersPage />
       </MainContent>
     </div>
   );

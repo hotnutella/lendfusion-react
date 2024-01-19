@@ -1,6 +1,7 @@
 import React from 'react';
 import { useGetUserDetailsQuery } from '../../store/api';
 import styles from './UserDetails.module.css';
+import Button from '../ui/Button';
 
 interface UserDetailsProps {
     id: number;
@@ -14,7 +15,7 @@ const UserDetails = ({ id, onBackClick }: UserDetailsProps) => {
 
     return (
         <>
-            <a href="#" onClick={() => onBackClick()} className={styles.backlink}>Back to users</a>
+            <Button onClick={() => onBackClick()}>Back to users</Button>
             {user && (
                 <div className={styles.detail}>
                     <div>Name: {user.name}</div>

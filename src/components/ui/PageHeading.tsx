@@ -1,14 +1,23 @@
 import React from 'react';
 import styles from './PageHeading.module.css';
+import SearchBox from './SearchBox';
 
 interface PageHeadingProps {
-    children: string;
+    title: string;
+    addButton?: React.ReactNode;
+    onSearch: (text: string) => void;
 }
 
-const PageHeading = ({ children }: PageHeadingProps) => {
+const PageHeading = (props: PageHeadingProps) => {
     return (
         <div className={styles.heading}>
-            {children}
+            <div className={styles.left}>
+                <span>{props.title}</span>
+                {props.addButton}
+            </div>
+            <div className={styles.right}>
+                <SearchBox onSearch={props.onSearch} />
+            </div>
         </div>
     );
 }

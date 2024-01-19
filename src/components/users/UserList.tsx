@@ -1,37 +1,26 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useGetUsersQuery } from '../../store/api';
 import UserListItem from './UserListItem';
-import PageHeading from '../ui/PageHeading';
-import { User } from './types';
-import UserDetails from './UserDetails';
-import SearchBox from '../ui/SearchBox';
+import { User } from '../../pages/users/types';
 
-const UserList = () => {
-    const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
+interface UserListProps {
+    onUserSelection: (id: number) => void;
+    searchQuery: string;
+}
+
+const UserList = ({ onUserSelection, searchQuery }: UserListProps) => {
     const { data: users } = useGetUsersQuery();
-    const [searchQuery, setSearchQuery] = useState<string>('');
 
-    const handleUserSelection = (id: number) => {
-        setSelectedUserId(id);
-    }
-
-    const filteredUsers = users ? users.filter((user: User) => user.name.toLowerCase().includes(searchQuery.toLowerCase())) : [];
-    const heading = selectedUserId ? users.find((user: User) => user.id === selectedUserId).name : 'Users';
+    const filter = (user: User) => user.name.toLowerCase().includes(searchQuery.toLowerCase());
+    const filteredUsers = users?.filter(filter) || [];
 
     return (
         <>
-            <PageHeading>{heading}</PageHeading>
-            {selectedUserId && (
-                <UserDetails
-                    id={selectedUserId}
-                    onBackClick={() => setSelectedUserId(null)} />
-            )}
-            {!selectedUserId && <SearchBox onSearch={(text) => setSearchQuery(text)} />}
-            {!selectedUserId && filteredUsers.map((user: User) => (
+            {filteredUsers.map((user: User) => (
                 <UserListItem
                     key={user.id}
                     name={user.name}
-                    onClick={() => handleUserSelection(user.id)} />
+                    onClick={() => onUserSelection(user.id)} />
             ))}
         </>
     );
