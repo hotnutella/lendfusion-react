@@ -1,5 +1,5 @@
 import React from 'react';
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, act } from '@testing-library/react';
 import SearchBox from './SearchBox';
 
 describe('SearchBox', () => {
@@ -15,7 +15,9 @@ describe('SearchBox', () => {
     it('calls the onSearch handler when the search text changes', () => {
         const onSearch = jest.fn();
         const { getByPlaceholderText } = render(<SearchBox onSearch={onSearch} />);
-        fireEvent.change(getByPlaceholderText('Search...'), { target: { value: 'test' } });
+        act(() => {
+            fireEvent.change(getByPlaceholderText('Search...'), { target: { value: 'test' } });
+        });
         expect(onSearch).toHaveBeenCalledWith('test');
     });
 });

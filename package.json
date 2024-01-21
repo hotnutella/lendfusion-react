@@ -45,7 +45,8 @@
     ]
   },
   "devDependencies": {
-    "gh-pages": "^6.1.1"
+    "gh-pages": "^6.1.1",
+    "msw": "^1.3.2"
   },
   "homepage": "https://hotnutella.github.io/lendfusion-react"
 }

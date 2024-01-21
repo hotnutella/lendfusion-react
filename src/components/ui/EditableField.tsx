@@ -50,6 +50,7 @@ const EditableField = (props: EditableFieldProps) => {
                     ref={ref}
                     type="text" 
                     value={value} 
+                    data-testid={`${props.name}-input`}
                     onBlur={handleBlur} 
                     onChange={handleChange}
                     onKeyUp={handleKeyUp} />
