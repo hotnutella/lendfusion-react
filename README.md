@@ -13,9 +13,10 @@
 
 ### Implementation
 
-- **React**: Used for building the user interface.
-- **RTK Query**: Utilized for efficient server state management in Redux, handling the data fetching, caching, and synchronization logic.
-- **CSS Modules**: Adopted for styling components in a modular and reusable way.
+- **React**: For building the user interface.
+- **RTK Query**: For efficient server state management in Redux, handling the data fetching, caching, and synchronization logic.
+- **CSS Modules**: For styling components in a modular and reusable way.
+- **Jest, React Testing Library and MSW**: For unit testing, integration testing and mocking.
 
 ## Demo
 The demo is accessible by following this link: https://hotnutella.github.io/lendfusion-react/
@@ -41,4 +42,11 @@ Follow these steps to get the project up and running on your local machine:
     npm start
     ```
     This command runs the app in development mode. Open http://localhost:3000 to view it in the browser. The page will reload if you make edits.
+
+## Running tests
+
+This command allows running tests locally in watch mode including the coverage report:
+```bash
+npm test -- --coverage
+```
 
