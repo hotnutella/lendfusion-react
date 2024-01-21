@@ -14,7 +14,7 @@ const Dialog: React.FC<DialogProps> = ({ open, title, onClose, children }) => {
         <>
             {open && (
                 <>
-                    <div className={styles.backdrop} onClick={onClose}></div>
+                    <div data-testid="backdrop" className={styles.backdrop} onClick={onClose}></div>
                     <Card className={styles.dialog}>
                         <div className={styles.header}>
                             <h2>{title}</h2>
