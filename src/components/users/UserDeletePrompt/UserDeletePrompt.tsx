@@ -1,6 +1,6 @@
 import React from 'react';
-import Dialog from '../ui/Dialog';
-import Button from '../ui/Button';
+import Dialog from '../../ui/Dialog/Dialog';
+import Button from '../../ui/Button/Button';
 import styles from './UserDeletePrompt.module.css';
 
 interface UserDeletePromptProps {

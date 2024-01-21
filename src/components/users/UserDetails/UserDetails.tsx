@@ -1,8 +1,8 @@
 import React from 'react';
-import { useGetUserDetailsQuery, useUpdateUserMutation } from '../../store/api';
+import { useGetUserDetailsQuery, useUpdateUserMutation } from '../../../store/api';
 import styles from './UserDetails.module.css';
-import Button from '../ui/Button';
-import EditableField from '../ui/EditableField';
+import Button from '../../ui/Button/Button';
+import EditableField from '../../ui/EditableField/EditableField';
 
 interface UserDetailsProps {
     id: number;

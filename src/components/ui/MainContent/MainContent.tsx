@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './MainContent.module.css';
-import Card from './Card';
+import Card from '../Card/Card';
 
 interface MainContentProps {
     children: React.ReactNode;

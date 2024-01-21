@@ -1,8 +1,8 @@
 import React from 'react';
-import { User } from '../../pages/users/types';
-import { useAddUserMutation } from '../../store/api';
+import { User } from '../../../pages/users/types';
+import { useAddUserMutation } from '../../../store/api';
 import styles from './UserForm.module.css';
-import Button from '../ui/Button';
+import Button from '../../ui/Button/Button';
 
 interface UserFormProps {
     onUserAdded: () => void;

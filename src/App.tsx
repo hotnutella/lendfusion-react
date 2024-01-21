@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './App.module.css';
-import MainContent from './components/ui/MainContent';
+import MainContent from './components/ui/MainContent/MainContent';
 import UsersPage from './pages/users';
 
 function App() {

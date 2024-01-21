@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './PageHeading.module.css';
-import SearchBox from './SearchBox';
+import SearchBox from '../SearchBox/SearchBox';
 
 interface PageHeadingProps {
     title: string;

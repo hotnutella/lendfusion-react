@@ -1,7 +1,7 @@
 import React from 'react';
-import { useGetUsersQuery } from '../../store/api';
-import UserListItem from './UserListItem';
-import { User } from '../../pages/users/types';
+import { useGetUsersQuery } from '../../../store/api';
+import UserListItem from '../UserListItem/UserListItem';
+import { User } from '../../../pages/users/types';
 
 interface UserListProps {
     onUserSelection: (id: number) => void;

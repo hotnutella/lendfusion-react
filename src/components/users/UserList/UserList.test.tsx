@@ -2,7 +2,7 @@ import React from 'react';
 import { render, waitFor } from '@testing-library/react';
 import UserList from './UserList';
 import { Provider } from 'react-redux';
-import { store } from '../../store';
+import { store } from '../../../store';
 
 describe('UserList', () => {
     it('renders without crashing', () => {

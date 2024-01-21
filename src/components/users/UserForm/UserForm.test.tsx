@@ -2,7 +2,7 @@ import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import UserForm from './UserForm';
 import { Provider } from 'react-redux';
-import { store } from '../../store';
+import { store } from '../../../store';
 import { act } from 'react-dom/test-utils';
 
 describe('UserForm', () => {

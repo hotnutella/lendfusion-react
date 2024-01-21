@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
 import { useDeleteUserMutation } from '../../store/api';
-import UserDetails from '../../components/users/UserDetails';
-import UserList from '../../components/users/UserList';
-import PageHeading from '../../components/ui/PageHeading';
-import Button from '../../components/ui/Button';
-import Dialog from '../../components/ui/Dialog';
-import UserForm from '../../components/users/UserForm';
-import UserDeletePrompt from '../../components/users/UserDeletePrompt';
+import UserDetails from '../../components/users/UserDetails/UserDetails';
+import UserList from '../../components/users/UserList/UserList';
+import PageHeading from '../../components/ui/PageHeading/PageHeading';
+import Button from '../../components/ui/Button/Button';
+import Dialog from '../../components/ui/Dialog/Dialog';
+import UserForm from '../../components/users/UserForm/UserForm';
+import UserDeletePrompt from '../../components/users/UserDeletePrompt/UserDeletePrompt';
 
 const UsersPage = () => {
     const [selectedUserId, setSelectedUserId] = useState<number | null>(null);
